@@ -1,0 +1,16 @@
+<form [formGroup]="todoForm" (ngSubmit)="onSubmit()" class="mb-3">
+    <div class="input-group">
+      <input
+        formControlName="task"
+        placeholder="Enter a task"
+        class="form-control"
+      />
+      <button type="submit" class="btn btn-primary" [disabled]="todoForm.invalid">
+        Add Todo
+      </button>
+    </div>
+    <div *ngIf="todoForm.controls['task'].invalid && todoForm.controls['task'].touched" class="text-danger mt-2">
+      Task is required!
+    </div>
+  </form>
+  
